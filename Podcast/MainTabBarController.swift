@@ -2,44 +2,38 @@
 //  MainTabBarController.swift
 //  Podcast
 //
-//  Created by prog on 1/7/19.
+//  Created by prog on 2/22/19.
 //  Copyright © 2019 prog. All rights reserved.
 //
 
 import UIKit
 class MainTabBarController : UITabBarController{
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super .viewDidLoad()
         UINavigationBar.appearance().prefersLargeTitles = true
+//        view.backgroundColor = .red
+        setUpTabControllers()
         tabBar.tintColor = .purple
-
-       
-        setupViewControllers()
         
     }
-    //MARK:-SETUP CONTROLLER
-    fileprivate func setupViewControllers(){
+    
+    //MARK:- TABCONTROLLERS
+    func setUpTabControllers(){
         
-        viewControllers = [
-            generateNavigationViewController(with: PodcastSearchController(), title: "favourties", image:UIImage(named:"favorites")! ),
-            generateNavigationViewController(with: ViewController(), title: "search", image:UIImage(named:"search")! ),
-            generateNavigationViewController(with: ViewController(), title: "download", image:UIImage(named:"downloads")! )
-
-            
-            
+        viewControllers = [generateNavigationController(for: ViewController(), title: "Favourites", image: UIImage(named: "favorites") ?? UIImage())
+            ,generateNavigationController(for: PodcastSearchController(), title: "Search", image: UIImage(named: "search") ?? UIImage()),
+             generateNavigationController(for: ViewController(), title: "Download", image: UIImage(named: "downloads") ?? UIImage())
+        
+        
+        
         ]
     }
-    
-    
-    //MARK:-HELPER FUNCTION
-
-    
-    fileprivate func  generateNavigationViewController (with rootViewController : UIViewController,title :String,image:UIImage) -> UIViewController{
-        let navigationController = UINavigationController(rootViewController: rootViewController)
+    //MARK:- HELPER FUNCTION
+    func generateNavigationController(for rootViewController : UIViewController,title:String,image:UIImage) -> UIViewController {
+        let navController = UINavigationController(rootViewController: rootViewController)
         rootViewController.navigationItem.title = title
-        navigationController.tabBarItem.title = title
-        navigationController.tabBarItem.image = image
-        
-        return navigationController
+        rootViewController.tabBarItem.title = title
+        rootViewController.tabBarItem.image = image
+        return navController
     }
 }

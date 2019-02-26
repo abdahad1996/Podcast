@@ -7,8 +7,15 @@
 //
 
 import Foundation
-struct Podcast {
-    let title :String
-    let artist : String
+struct SearchResult:Decodable {
+    let resultCount:Int?
+    let results : [Podcast]
+}
+struct Podcast:Decodable {
+    let trackName :String?
+    let artistName : String?
+    let artworkUrl600:String?
+    let trackCount:Int?
+    let feedURL:String?
 }
 

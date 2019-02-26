@@ -7,4 +7,8 @@ target 'Podcast' do
 
   # Pods for Podcast
 pod 'Alamofire'
+pod 'SDWebImage'
+
+
+
 end
