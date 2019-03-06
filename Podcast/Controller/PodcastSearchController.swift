@@ -19,6 +19,7 @@ class PodcastSearchController : UITableViewController,UISearchBarDelegate{
         super.viewDidLoad()
         setupTableView()
         setupSearchBar()
+        searchBar(searchController.searchBar, textDidChange: "voong")
         
         
     }
@@ -54,11 +55,22 @@ class PodcastSearchController : UITableViewController,UISearchBarDelegate{
         label.textColor = .purple
         return label
     }
+    
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return self.podcasts.count>0 ? 0:250
     }
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return podcasts.count
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+         let episodeController = EpisodesController()
+         let podcast = podcasts[indexPath.row]
+        episodeController.podcast = podcast
+        self.navigationController?.pushViewController(episodeController, animated: true)
+        
+            
+        
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

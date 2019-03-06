@@ -14,8 +14,69 @@ class MainTabBarController : UITabBarController{
 //        view.backgroundColor = .red
         setUpTabControllers()
         tabBar.tintColor = .purple
+        setUpPlayersDetailView()
+//        perform(#selector(minimizePlayerDetailView), with: nil, afterDelay: 1)
         
     }
+    
+    
+    //Mark:- PLAYER DETAIL VIEW FUNCTIONS
+    let playerDetailView = PlayersDetailView.initFromNib()
+    var maximizedConstraint:NSLayoutConstraint!
+    var minimizedConstraint:NSLayoutConstraint!
+    
+    func maximizePlayerDetailView(episode:episode?){
+        print("111")
+        maximizedConstraint.isActive=true
+        maximizedConstraint.constant=0
+        minimizedConstraint.isActive=false
+        if episode != nil{
+            playerDetailView.episode = episode
+        }
+        
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+//            self.tabBar.transform = .identity
+            self.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
+
+            self.playerDetailView.maximizedStackView.alpha=1
+            self.playerDetailView.miniPlayerView.alpha=0
+        }, completion: nil)
+        
+    }
+    
+    @objc func minimizePlayerDetailView(){
+        print("111")
+        maximizedConstraint.isActive=false
+//        maximizedConstraint.constant=0
+        minimizedConstraint.isActive=true
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
+            self.view.layoutIfNeeded()
+//            self.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
+                        self.tabBar.transform = .identity
+
+            self.playerDetailView.maximizedStackView.alpha=0
+            self.playerDetailView.miniPlayerView.alpha=1
+
+        }, completion: nil)
+        
+    }
+    
+    func setUpPlayersDetailView(){
+        view.insertSubview(playerDetailView, belowSubview: tabBar)
+        playerDetailView.translatesAutoresizingMaskIntoConstraints = false
+        minimizedConstraint=playerDetailView.topAnchor.constraint(equalTo: tabBar.topAnchor, constant: -64)
+//        minimizedConstraint.isActive=true
+        
+        maximizedConstraint=playerDetailView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
+        maximizedConstraint.isActive = true
+        playerDetailView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
+            .isActive=true
+        playerDetailView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive=true
+        playerDetailView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0  )
+            .isActive=true
+    }
+    
     
     //MARK:- TABCONTROLLERS
     func setUpTabControllers(){
