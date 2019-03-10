@@ -24,16 +24,24 @@ class MainTabBarController : UITabBarController{
     let playerDetailView = PlayersDetailView.initFromNib()
     var maximizedConstraint:NSLayoutConstraint!
     var minimizedConstraint:NSLayoutConstraint!
+    var bottomAnchorConstraint: NSLayoutConstraint!
+
     
-    func maximizePlayerDetailView(episode:episode?){
-        print("111")
-        maximizedConstraint.isActive=true
-        maximizedConstraint.constant=0
-        minimizedConstraint.isActive=false
+    func maximizePlayerDetailView(episode:episode?,playlistEpisodes: [episode] = []){
+        
+        minimizedConstraint.isActive = false
+        maximizedConstraint.isActive = true
+        maximizedConstraint.constant = 0
+        
+        bottomAnchorConstraint.constant = 0
+        
+        
+       
         if episode != nil{
             playerDetailView.episode = episode
         }
-        
+        playerDetailView.playlistEpisodes = playlistEpisodes
+
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
 //            self.tabBar.transform = .identity
@@ -47,9 +55,9 @@ class MainTabBarController : UITabBarController{
     
     @objc func minimizePlayerDetailView(){
         print("111")
-        maximizedConstraint.isActive=false
-//        maximizedConstraint.constant=0
-        minimizedConstraint.isActive=true
+        maximizedConstraint.isActive = false
+        bottomAnchorConstraint.constant = view.frame.height
+        minimizedConstraint.isActive = true
         UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 1, options: .curveEaseOut, animations: {
             self.view.layoutIfNeeded()
 //            self.tabBar.transform = CGAffineTransform(translationX: 0, y: 100)
@@ -70,18 +78,21 @@ class MainTabBarController : UITabBarController{
         
         maximizedConstraint=playerDetailView.topAnchor.constraint(equalTo: view.topAnchor, constant: view.frame.height)
         maximizedConstraint.isActive = true
+        bottomAnchorConstraint = playerDetailView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: view.frame.height)
+        bottomAnchorConstraint.isActive = true
+        
         playerDetailView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0)
             .isActive=true
         playerDetailView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive=true
-        playerDetailView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0  )
-            .isActive=true
+       
     }
     
     
     //MARK:- TABCONTROLLERS
     func setUpTabControllers(){
-        
-        viewControllers = [generateNavigationController(for: ViewController(), title: "Favourites", image: UIImage(named: "favorites") ?? UIImage())
+        let ColletionViewFlowLayout = UICollectionViewFlowLayout()
+        let favouriteController = FavoritesController(collectionViewLayout: ColletionViewFlowLayout)
+        viewControllers = [generateNavigationController(for: favouriteController, title: "Favourites", image: UIImage(named: "favorites") ?? UIImage())
             ,generateNavigationController(for: PodcastSearchController(), title: "Search", image: UIImage(named: "search") ?? UIImage()),
              generateNavigationController(for: ViewController(), title: "Download", image: UIImage(named: "downloads") ?? UIImage())
         
