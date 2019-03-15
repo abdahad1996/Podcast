@@ -32,4 +32,6 @@ class EpisodeCell: UITableViewCell {
     @IBOutlet weak var episodeTitle: UILabel!
     @IBOutlet weak var EpisodeDescription: UILabel!
     @IBOutlet weak var episodePubDate: UILabel!
+    @IBOutlet weak var progressLabel: UILabel!
+    
 }

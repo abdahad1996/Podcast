@@ -49,13 +49,21 @@
                             </label>
                         </subviews>
                     </stackView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="100 %" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Cg2-do-c2W">
+                        <rect key="frame" x="38" y="73" width="60" height="24"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                        <color key="textColor" cocoaTouchSystemColor="tableCellGroupedBackgroundColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="Rtp-ir-2Jk" firstAttribute="centerY" secondItem="q6m-bo-LTY" secondAttribute="centerY" id="7PT-w9-lhA"/>
+                    <constraint firstItem="Cg2-do-c2W" firstAttribute="centerY" secondItem="q6m-bo-LTY" secondAttribute="centerY" id="M5Q-95-qiO"/>
                     <constraint firstAttribute="trailing" secondItem="Rtp-ir-2Jk" secondAttribute="trailing" id="Q52-Rf-krw"/>
                     <constraint firstItem="q6m-bo-LTY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="bPO-S7-fvS"/>
                     <constraint firstItem="q6m-bo-LTY" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ced-d9-66B"/>
                     <constraint firstItem="Rtp-ir-2Jk" firstAttribute="leading" secondItem="q6m-bo-LTY" secondAttribute="trailing" constant="10" id="gQb-UZ-b7A"/>
+                    <constraint firstItem="Cg2-do-c2W" firstAttribute="centerX" secondItem="q6m-bo-LTY" secondAttribute="centerX" id="x8C-gR-UNt"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
@@ -64,6 +72,7 @@
                 <outlet property="episodeImageView" destination="q6m-bo-LTY" id="IRy-6Q-Rqo"/>
                 <outlet property="episodePubDate" destination="Fp6-lU-Bq3" id="pRf-Uy-xxj"/>
                 <outlet property="episodeTitle" destination="Abc-GO-p2A" id="k3u-SX-BPg"/>
+                <outlet property="progressLabel" destination="Cg2-do-c2W" id="ByR-7D-Wfb"/>
             </connections>
             <point key="canvasLocation" x="140.80000000000001" y="190.70464767616193"/>
         </tableViewCell>

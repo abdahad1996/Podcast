@@ -9,10 +9,18 @@
 import UIKit
 
 class favoriteCell: UICollectionViewCell {
+    
+    var podcast:Podcast!{
+        didSet{
+            let url = URL(string: podcast.artworkUrl600 ?? "")
+            imageView.sd_setImage(with: url, completed: nil)
+            artistLabel.text = podcast.artistName
+            namelabel.text = podcast.trackName
+        }
+    }
     override init(frame: CGRect) {
         super.init(frame: frame)
         setUpView()
-        backgroundColor = .yellow
     }
     
     required init?(coder aDecoder: NSCoder) {

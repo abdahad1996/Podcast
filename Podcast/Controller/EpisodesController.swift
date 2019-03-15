@@ -26,7 +26,59 @@ class EpisodesController:UITableViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         setUpTableView()
+        setUpNavigationItem()
     }
+    //  Mark:- right navigationItem
+     let favoritedPodcastKey = "favoritedPodcastKey"
+
+    func setUpNavigationItem(){
+        let savedPodcast = UserDefaults.standard.savedPodcast()
+       
+//        let fetchBarButtonItem = UIBarButtonItem(title: "fetch", style: .plain, target: self, action: #selector(handleFetch))
+        let hasFavorited = savedPodcast.index(where:{
+            $0.artistName == self.podcast?.artistName && $0.trackName == self.podcast?.artistName
+        }) != nil
+        if hasFavorited{
+            let heartBarButton = UIBarButtonItem(image: #imageLiteral(resourceName: "heart"), style: .plain, target: nil, action: nil)
+            navigationItem.setRightBarButton(heartBarButton, animated: true)
+        }else{
+            let favoritesBarButtonItem = UIBarButtonItem(title: "favorites", style: .plain, target: self, action: #selector(handleSaveFavorite))
+            navigationItem.setRightBarButtonItems([favoritesBarButtonItem], animated: true )
+        }
+        
+    }
+    @objc func handleSaveFavorite(){
+        guard let podcast = podcast else {return }
+        //1-turning podcast into data
+       
+        
+        var listOfPodcast = UserDefaults.standard.savedPodcast()
+        listOfPodcast.append(podcast)
+        
+        let data = NSKeyedArchiver.archivedData(withRootObject: listOfPodcast)
+        UserDefaults.standard.set(data, forKey:favoritedPodcastKey )
+        print("favorites")
+        navigationItem.rightBarButtonItem = UIBarButtonItem(image: #imageLiteral(resourceName: "heart"), style: .plain, target: nil, action: nil)
+        showBadgeHighlights()
+    }
+    func showBadgeHighlights(){
+        UIApplication.mainTabBarController()?.viewControllers?[0].tabBarItem.badgeValue = "new"
+    }
+    fileprivate func showDownloadBadgeHighlight() {
+        UIApplication.mainTabBarController()?.viewControllers?[2].tabBarItem.badgeValue = "New"
+    }
+//    @objc func handleFetch(){
+//        print("fetch")
+//        let savedPodcast = UserDefaults.standard.savedPodcast()
+//        savedPodcast.forEach { (p) in
+//            print("\(p.trackName)")
+//
+//        }
+//
+//    }
+    
+    
+    
     
     //Mark:-PARSE XML USING FEEDKIT
     var timer : Timer?
@@ -56,6 +108,22 @@ class EpisodesController:UITableViewController{
         tableView.register(nib, forCellReuseIdentifier: cellID)
         tableView.tableFooterView = UIView()
 
+    }
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        
+        let downloadAction = UITableViewRowAction(style: .normal, title: "Download") { (_, _) in
+            print("Downloading episode into UserDefaults")
+            let episode = self.episodes[indexPath.row]
+            UserDefaults.standard.downloadEpisode(episode: episode)
+            
+//             download the podcast episode using Alamofire
+            APIService.shared.downloadEpisode(episode: episode)
+            self.showDownloadBadgeHighlight()
+            
+        }
+        
+        return [downloadAction]
     }
     override func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
         let activityIndicatorView = UIActivityIndicatorView(style: .whiteLarge)

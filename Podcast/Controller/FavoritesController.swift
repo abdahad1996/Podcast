@@ -12,32 +12,69 @@ private let reuseIdentifier = "Cell"
 
 class FavoritesController: UICollectionViewController,UICollectionViewDelegateFlowLayout {
 
+    var podcastSavedlocallyArray = UserDefaults.standard.savedPodcast()
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+      setUpCollectionView()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        collectionView.reloadData()
+        podcastSavedlocallyArray=UserDefaults.standard.savedPodcast()
+        UIApplication.mainTabBarController()?.viewControllers?[0].tabBarItem.badgeValue = nil
 
-        // Register cell classes
+    }
+    // setupcollectionview
+    func setUpCollectionView(){
         collectionView?.backgroundColor = .white
         self.collectionView!.register(favoriteCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        
-        // Do any additional setup after loading the view.
+        let gestureRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPressDelete))
+        collectionView.addGestureRecognizer(gestureRecognizer)
     }
+    
 
    
+    // Mark:LongPressDelete from Favorite controller
+    @objc func longPressDelete(gesture:UILongPressGestureRecognizer){
+        let location = gesture.location(in: collectionView)
+        guard let selectedIndexItem = collectionView.indexPathForItem(at: location) else {return}
+        let alertController = UIAlertController(title: "Remove Podcast?", message: nil, preferredStyle: .actionSheet)
+        
+        alertController.addAction(UIAlertAction(title: "Yes", style: .destructive, handler: { (_) in
+            let selectedPodcast = self.podcastSavedlocallyArray[selectedIndexItem.item]
+            self.podcastSavedlocallyArray.remove(at: selectedIndexItem.item)
+            self.collectionView.deleteItems(at: [selectedIndexItem])
+            UserDefaults.standard.deletePodcast(podcast: selectedPodcast)
+        }))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        present(alertController, animated: true)
 
+        
+    }
+    
+    
     // MARK: UICollectionViewDataSource
 
-  
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let savedPodcast = UserDefaults.standard.savedPodcast()
+        let episodeViewController = EpisodesController()
+        episodeViewController.podcast = savedPodcast[indexPath.item]
+        navigationController?.pushViewController(episodeViewController, animated: true)
+    }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 5
+        return podcastSavedlocallyArray.count
     }
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath)
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as? favoriteCell else{
+            return UICollectionViewCell()
+        }
+        cell.podcast = podcastSavedlocallyArray[indexPath.item]
+        
         
     
         // Configure the cell

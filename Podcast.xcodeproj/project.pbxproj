@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		16289FF0223676D500ECEE95 /* UserDefaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16289FEF223676D500ECEE95 /* UserDefaults.swift */; };
+		16289FF22236F7EB00ECEE95 /* DownloadsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 16289FF12236F7EB00ECEE95 /* DownloadsController.swift */; };
 		1638A2E32221687100AC9A76 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638A2E22221687100AC9A76 /* APIService.swift */; };
 		1638A2EB2221B94E00AC9A76 /* PodcastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1638A2EA2221B94E00AC9A76 /* PodcastCell.xib */; };
 		1638A2ED2221BBB400AC9A76 /* PodcastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1638A2EC2221BBB400AC9A76 /* PodcastCell.swift */; };
@@ -35,6 +37,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		16289FEF223676D500ECEE95 /* UserDefaults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaults.swift; sourceTree = "<group>"; };
+		16289FF12236F7EB00ECEE95 /* DownloadsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadsController.swift; sourceTree = "<group>"; };
 		1638A2E22221687100AC9A76 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		1638A2EA2221B94E00AC9A76 /* PodcastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PodcastCell.xib; sourceTree = "<group>"; };
 		1638A2EC2221BBB400AC9A76 /* PodcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PodcastCell.swift; sourceTree = "<group>"; };
@@ -92,6 +96,7 @@
 				16543AEC2225F0C000553DD2 /* RSSFeed.swift */,
 				164C7FF3222DCF0D00390746 /* CMTime.swift */,
 				16FCA2AE223037540056DBD5 /* UIApplication.swift */,
+				16289FEF223676D500ECEE95 /* UserDefaults.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -164,6 +169,7 @@
 				16590FB821E2A1D100F8548A /* PodcastSearchController.swift */,
 				16543AE32225535D00553DD2 /* EpisodesController.swift */,
 				16FA7D8922350A7C00AE7F62 /* FavoritesController.swift */,
+				16289FF12236F7EB00ECEE95 /* DownloadsController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -320,6 +326,7 @@
 				16590FA421E292AA00F8548A /* ViewController.swift in Sources */,
 				16CA3440222011A000BC22A0 /* MainTabBarController.swift in Sources */,
 				16FA7D8C223517A600AE7F62 /* favoriteCell.swift in Sources */,
+				16289FF22236F7EB00ECEE95 /* DownloadsController.swift in Sources */,
 				16543AE42225535D00553DD2 /* EpisodesController.swift in Sources */,
 				164C7FF4222DCF0D00390746 /* CMTime.swift in Sources */,
 				16590FA221E292AA00F8548A /* AppDelegate.swift in Sources */,
@@ -327,6 +334,7 @@
 				168FA4B82226ABC400763B2B /* PlayersDetailView.swift in Sources */,
 				16590FBB21E2A44800F8548A /* Podcast.swift in Sources */,
 				16543AE622256EE300553DD2 /* Episode.swift in Sources */,
+				16289FF0223676D500ECEE95 /* UserDefaults.swift in Sources */,
 				16FA7D8A22350A7C00AE7F62 /* FavoritesController.swift in Sources */,
 				16FCA2AD2230361E0056DBD5 /* PlayersDetailView+Gestures.swift in Sources */,
 				1638A2ED2221BBB400AC9A76 /* PodcastCell.swift in Sources */,

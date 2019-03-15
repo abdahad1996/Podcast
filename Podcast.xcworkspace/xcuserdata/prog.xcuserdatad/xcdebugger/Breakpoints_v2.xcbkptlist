@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Podcast/Controller/PodcastSearchController.swift"
-            timestampString = "573607621.3304991"
+            timestampString = "574016764.890486"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "94"
@@ -42,7 +42,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Podcast/View/EpisodeCell.swift"
-            timestampString = "573480933.490247"
+            timestampString = "574209420.637441"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "28"
@@ -58,12 +58,12 @@
                   moduleName = "Podcast"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/prog/Desktop/Podcast/Podcast/View/EpisodeCell.swift"
-                  timestampString = "573520592.373469"
+                  timestampString = "574199999.49512"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
                   endingLineNumber = "31"
-                  offsetFromSymbolStart = "259">
+                  offsetFromSymbolStart = "277">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -73,12 +73,12 @@
                   moduleName = "Podcast"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/prog/Desktop/Podcast/Podcast/View/EpisodeCell.swift"
-                  timestampString = "573520592.375666"
+                  timestampString = "574199999.497716"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "31"
                   endingLineNumber = "31"
-                  offsetFromSymbolStart = "228">
+                  offsetFromSymbolStart = "246">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -90,7 +90,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Podcast/View/EpisodeCell.swift"
-            timestampString = "573480933.490315"
+            timestampString = "574209420.637534"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "25"
@@ -106,7 +106,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Podcast/View/EpisodeCell.swift"
-            timestampString = "573480933.490365"
+            timestampString = "574209420.637581"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "23"
@@ -122,7 +122,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Podcast/View/EpisodeCell.swift"
-            timestampString = "573480933.49041"
+            timestampString = "574209420.637619"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "20"
@@ -138,7 +138,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Podcast/View/EpisodeCell.swift"
-            timestampString = "573480933.490451"
+            timestampString = "574209420.637655"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "21"
@@ -154,12 +154,155 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Podcast/MainTabBarController.swift"
-            timestampString = "573907814.906806"
+            timestampString = "574028584.62293"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
             landmarkName = "maximizePlayerDetailView(episode:playlistEpisodes:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Podcast/Controller/FavoritesController.swift"
+            timestampString = "574028584.623361"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "longPressDelete(gesture:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Podcast.FavoritesController.longPressDelete(gesture: __C.UILongPressGestureRecognizer) -&gt; ()"
+                  moduleName = "Podcast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prog/Desktop/Podcast/Podcast/Controller/FavoritesController.swift"
+                  timestampString = "574199999.519451"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "45"
+                  endingLineNumber = "45"
+                  offsetFromSymbolStart = "938">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.UIAlertAction) -&gt; () in Podcast.FavoritesController.longPressDelete(gesture: __C.UILongPressGestureRecognizer) -&gt; ()"
+                  moduleName = "Podcast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prog/Desktop/Podcast/Podcast/Controller/FavoritesController.swift"
+                  timestampString = "574199999.521211"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "46"
+                  endingLineNumber = "46"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Podcast/Extensions/UserDefaults.swift"
+            timestampString = "574203807.652187"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
+            landmarkName = "downloadEpisode(episode:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in Podcast):__C.NSUserDefaults.downloadEpisode(episode: Podcast.episode) -&gt; ()"
+                  moduleName = "Podcast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prog/Desktop/Podcast/Podcast/Extensions/UserDefaults.swift"
+                  timestampString = "574199999.5258369"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "719">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in Podcast):__C.NSUserDefaults.downloadEpisode(episode: Podcast.episode) -&gt; ()"
+                  moduleName = "Podcast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prog/Desktop/Podcast/Podcast/Extensions/UserDefaults.swift"
+                  timestampString = "574199999.527903"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1175">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(extension in Podcast):__C.NSUserDefaults.downloadEpisode(episode: Podcast.episode) -&gt; ()"
+                  moduleName = "Podcast"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/prog/Desktop/Podcast/Podcast/Extensions/UserDefaults.swift"
+                  timestampString = "574199999.530465"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "30"
+                  endingLineNumber = "30"
+                  offsetFromSymbolStart = "1242">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Podcast/Extensions/UserDefaults.swift"
+            timestampString = "574203807.652277"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+            landmarkName = "downloadedEpisodes()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "API/APIService.swift"
+            timestampString = "574209420.637817"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "96"
+            endingLineNumber = "96"
+            landmarkName = "downloadEpisode(episode:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

@@ -94,7 +94,7 @@ class MainTabBarController : UITabBarController{
         let favouriteController = FavoritesController(collectionViewLayout: ColletionViewFlowLayout)
         viewControllers = [generateNavigationController(for: favouriteController, title: "Favourites", image: UIImage(named: "favorites") ?? UIImage())
             ,generateNavigationController(for: PodcastSearchController(), title: "Search", image: UIImage(named: "search") ?? UIImage()),
-             generateNavigationController(for: ViewController(), title: "Download", image: UIImage(named: "downloads") ?? UIImage())
+             generateNavigationController(for: DownloadsController(), title: "Download", image: UIImage(named: "downloads") ?? UIImage())
         
         
         

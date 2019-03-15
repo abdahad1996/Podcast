@@ -10,8 +10,14 @@ import Foundation
 import Alamofire
 import FeedKit
 
-class APIService {
+extension Notification.Name {
     
+    static let downloadProgress = NSNotification.Name("downloadProgress")
+    static let downloadComplete = NSNotification.Name("downloadComplete")
+}
+
+class APIService {
+    typealias EpisodeDownloadCompleteTuple = (fileUrl: String, episodeTitle: String)
     let baseUrl = "https://itunes.apple.com/search"
 
     static let shared = APIService()
@@ -42,6 +48,54 @@ class APIService {
             }
             
         }
+    }
+    func downloadEpisode(episode:episode){
+        let downloadRequest = DownloadRequest.suggestedDownloadDestination()
+        Alamofire.download(episode.streamUrl, to: downloadRequest).downloadProgress { (Progress) in
+            
+            
+            
+            print(Progress.fractionCompleted)
+            
+            NotificationCenter.default.post(name: .downloadProgress, object: nil, userInfo: ["title": episode.title, "progress": Progress.fractionCompleted])
+            
+            }.response { (resp) in
+                print(resp.destinationURL?.absoluteString ?? "hahahaha" )
+                
+                let episodeDownloadComplete = EpisodeDownloadCompleteTuple(fileUrl: resp.destinationURL?.absoluteString ?? "", episode.title)
+                NotificationCenter.default.post(name: .downloadComplete, object: episodeDownloadComplete, userInfo: nil)
+                
+                
+                var downloadedEpisodes = UserDefaults.standard.downloadedEpisodes()
+                guard let index = downloadedEpisodes.index(where:{
+                    $0.title == episode.title && $0.author == episode.author
+                }) else {return}
+                do {
+                    
+                    let data = try JSONEncoder().encode(downloadedEpisodes)
+                    UserDefaults.standard.set(data, forKey: UserDefaults.downloadedEpisodesKey)
+                } catch let err {
+                    print("Failed to encode downloaded episodes with file url update:", err)
+                }
+//                print(downloadedEpisodes[index].fileURL ?? "no fileurl")
+        }
+        
+        
+        
+        var downloadedEpisodes = UserDefaults.standard.downloadedEpisodes()
+       guard let index = downloadedEpisodes.index(where:{
+            $0.title == episode.title && $0.author == episode.author
+       }) else {return}
+        do {
+            
+            let data = try JSONEncoder().encode(downloadedEpisodes)
+            UserDefaults.standard.set(data, forKey: UserDefaults.downloadedEpisodesKey)
+        } catch let err {
+            print("Failed to encode downloaded episodes with file url update:", err)
+        }
+        print(downloadedEpisodes[index].fileUrl ?? "no fileurl")
+        
+        
     }
     
     func parseEpisodeService(feedURL:String ,completionHandler:@escaping ([episode])->()){
